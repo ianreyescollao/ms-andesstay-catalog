@@ -1,6 +1,22 @@
+
 spring:
   application:
     name: ms-andesstay-catalog
+
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@cloudnativetest_low
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    hikari:
+      data-source-properties:
+        oracle.net.tns_admin: ${DB_WALLET_PATH}
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    open-in-view: false
 
 server:
   port: 8081
