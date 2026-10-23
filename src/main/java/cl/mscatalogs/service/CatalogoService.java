@@ -1,30 +1,14 @@
+
 package cl.mscatalogs.service;
 
-import org.springframework.stereotype.Service;
-
+import cl.mscatalogs.dto.UnidadDTO;
 import java.util.List;
-import java.util.Map;
 
-@Service
-public class CatalogoService {
+public interface CatalogoService {
 
-    public List<Map<String, Object>> obtenerCatalogo() {
-        return List.of(
-                Map.of(
-                        "id", 1,
-                        "nombre", "Habitacion Standard",
-                        "precio", 45000
-                ),
-                Map.of(
-                        "id", 2,
-                        "nombre", "Habitacion Premium",
-                        "precio", 75000
-                ),
-                Map.of(
-                        "id", 3,
-                        "nombre", "Suite Andes",
-                        "precio", 120000
-                )
-        );
-    }
+    List<UnidadDTO> obtenerCatalogo();
+    UnidadDTO obtenerPorId(Long id);
+    UnidadDTO crearUnidad(UnidadDTO unidadDTO);
+    UnidadDTO actualizarUnidad(Long id, UnidadDTO unidadDTO);
+    void eliminarUnidad(Long id);
 }
